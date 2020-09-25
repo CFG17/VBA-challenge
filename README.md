@@ -1,3 +1,7 @@
+
+
+
+
 # VBA-challenge
 VBA script - Stock Market Data
 Sub ModerateChallenge()
@@ -9,8 +13,8 @@ Sub ModerateChallenge()
 
             For Each ws In Worksheets
                 total_vol = 0
-                ticker_counter = 2              ' keep track of row to write out ticker summary
-                ticker_open_close_counter = 2   ' keep track of row to save off open and close values
+                ticker_counter = 2              ' row to write out ticker summary
+                ticker_open_close_counter = 2   ' row to save off open and close values
         
 
                 ws.Range("I1").Value = "Ticker"
@@ -30,7 +34,7 @@ Sub ModerateChallenge()
                         yearly_end = ws.Cells(i, 6)
                         ws.Cells(ticker_counter, 9).Value = ticker
                         ws.Cells(ticker_counter, 10).Value = yearly_end - yearly_open
-                        ' If we have opening value = 0, then just set cell to null
+                        ' If  opening value = 0, then just set cell to null
                         ' to avoid dividing by 0
                         If yearly_open = 0 Then
                             ws.Cells(ticker_counter, 11).Value = Null
@@ -40,7 +44,7 @@ Sub ModerateChallenge()
                         ws.Cells(ticker_counter, 12).Value = total_vol
         
 
-                        ' Color the cell green if > 0, red if < 0
+                        ' Color green if > 0, red if < 0
                         If ws.Cells(ticker_counter, 10).Value > 0 Then
                             ws.Cells(ticker_counter, 10).Interior.ColorIndex = 4
                         Else
